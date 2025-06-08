@@ -27,7 +27,7 @@ LAMPORTS_PER_SOL = 1_000_000_000
 # --- 1. Chức năng Chuyển tiền (từ transaction.py) ---
 # ==============================================================================
 async def transfer_assets(client: AsyncClient, sender: Keypair, receiver_str: str, mint_address_str: str, amount_to_send: float):
-    print("\n🔄 Đang xử lý giao dịch, vui lòng chờ...")
+    print("\nĐang xử lý giao dịch, vui lòng chờ...")
     try:
         receiver = Pubkey.from_string(receiver_str)
     except ValueError:
@@ -40,14 +40,14 @@ async def transfer_assets(client: AsyncClient, sender: Keypair, receiver_str: st
     instructions = []
     
     if mint_address_str.upper() == 'SOL':
-        print("➡️  Giao dịch SOL...")
+        print("Giao dịch SOL...")
         lamports = int(amount_to_send * LAMPORTS_PER_SOL)
         transfer_ix = sol_transfer(
             TransferParams(from_pubkey=sender.pubkey(), to_pubkey=receiver, lamports=lamports)
         )
         instructions.append(transfer_ix)
     else:
-        print("➡️  Giao dịch SPL Token...")
+        print("Giao dịch SPL Token...")
         try:
             mint_address = Pubkey.from_string(mint_address_str)
         except ValueError:
@@ -100,7 +100,7 @@ async def transfer_assets(client: AsyncClient, sender: Keypair, receiver_str: st
 
     try:
         resp = await client.send_transaction(tx, opts=TxOpts(skip_preflight=False))
-        print(f"✅ Giao dịch đã được gửi thành công!")
+        print(f"Giao dịch đã được gửi thành công!")
         print(f"   Signature: {resp.value}")
         print(f"   Xem trên Solana Explorer: https://explorer.solana.com/tx/{resp.value}?cluster=devnet")
     except Exception as e:
@@ -111,7 +111,7 @@ async def transfer_assets(client: AsyncClient, sender: Keypair, receiver_str: st
 # --- 2. Chức năng Lịch sử Giao dịch (từ getHistory.py) ---
 # ==============================================================================
 async def get_transaction_history(client: AsyncClient, address: Pubkey, limit: int):
-    print(f"\n🔄 Đang lấy {limit} giao dịch gần nhất cho {address}...")
+    print(f"\nĐang lấy {limit} giao dịch gần nhất cho {address}...")
     
     response = await client.get_signatures_for_address(address, limit=limit)
     if not response.value:
@@ -267,7 +267,7 @@ async def _process_log_notification(
     
     # --- Bắt đầu xử lý. Không còn giữ khóa ở đây. ---
     now = datetime.now(timezone.utc)
-    print(f"\n🔔 Giao dịch được xử lý (Signature: {signature}) lúc {now.strftime('%Y-%m-%d %H:%M:%S %Z')} 🔔")
+    print(f"\nGiao dịch được xử lý (Signature: {signature}) lúc {now.strftime('%Y-%m-%d %H:%M:%S %Z')}")
     print(f"   Xem trên Solana Explorer: https://explorer.solana.com/tx/{signature}?cluster=devnet")
         
     try:
@@ -364,7 +364,7 @@ async def _process_log_notification(
     finally:
         # Signature đã được thêm vào. Chỉ cần in dòng kết thúc.
         print("====================================================================")
-        print("‼️ Nhấn 'ENTER' để dừng giám sát và quay lại menu ‼️")
+        print("Nhấn 'ENTER' để dừng giám sát và quay lại menu")
 
 
 async def _monitor_single_account(pubkey: Pubkey, http_client: AsyncClient, context: dict, main_wallet_str: str, owned_accounts_strs: set[str]):
@@ -402,7 +402,7 @@ async def live_monitor(client: AsyncClient, main_wallet_pubkey: Pubkey):
 
     try:
         # --- Tìm tất cả các tài khoản để giám sát ---
-        print(f"\n🔄 Tìm tất cả tài khoản cho ví chính: {main_wallet_str}")
+        print(f"\nTìm tất cả tài khoản cho ví chính: {main_wallet_str}")
         accounts_to_monitor = {main_wallet_pubkey}
 
         try:
@@ -415,7 +415,7 @@ async def live_monitor(client: AsyncClient, main_wallet_pubkey: Pubkey):
         except Exception as e:
             print(f"Cảnh báo: Không thể lấy các tài khoản token: {e}")
 
-        print(f"\n✅ Sẵn sàng giám sát {len(accounts_to_monitor)} tài khoản đồng thời:")
+        print(f"\nSẵn sàng giám sát {len(accounts_to_monitor)} tài khoản đồng thời:")
         
         owned_accounts_strs = {str(pk) for pk in accounts_to_monitor}
 
@@ -430,7 +430,7 @@ async def live_monitor(client: AsyncClient, main_wallet_pubkey: Pubkey):
             
         print("\nTất cả các trình giám sát đã bắt đầu. Đang lắng nghe tất cả các giao dịch...")
         print("====================================================================")
-        print("‼️ Nhấn 'ENTER' để dừng giám sát và quay lại menu ‼️")
+        print("Nhấn 'ENTER' để dừng giám sát và quay lại menu")
 
         # Tạo một tác vụ để lắng nghe input từ người dùng trong một thread riêng
         # để không chặn vòng lặp sự kiện asyncio
@@ -444,7 +444,7 @@ async def live_monitor(client: AsyncClient, main_wallet_pubkey: Pubkey):
 
         # Nếu tác vụ input hoàn thành, có nghĩa là người dùng đã nhấn Enter
         if input_task in done:
-            print("\n🔄 Đang dừng giám sát theo yêu cầu của người dùng...")
+            print("\nĐang dừng giám sát theo yêu cầu của người dùng...")
         else:
             # Nếu một tác vụ giám sát bị lỗi, in ra lỗi
             for task in done:

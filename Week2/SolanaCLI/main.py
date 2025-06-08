@@ -45,7 +45,7 @@ async def main_menu():
             print_header("Chức năng 2: Lịch sử giao dịch")
             try:
                 # --- Lấy danh sách tài khoản để người dùng lựa chọn ---
-                print("🔄 Đang tìm các tài khoản của bạn để lựa chọn...")
+                print("Đang tìm các tài khoản của bạn để lựa chọn...")
                 from spl.token.constants import TOKEN_PROGRAM_ID
                 from solana.rpc.types import TokenAccountOpts
                 from spl.token._layouts import ACCOUNT_LAYOUT # Thêm import để parse dữ liệu

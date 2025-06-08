@@ -35,7 +35,7 @@ def login_with_secret_key() -> Keypair | None:
         
         # Tạo Keypair từ secret bytes
         keypair = Keypair.from_bytes(secret_key_bytes)
-        print(f"\n✅ Đăng nhập thành công! Chào mừng, {keypair.pubkey()}")
+        print(f"\nĐăng nhập thành công! Chào mừng, {keypair.pubkey()}")
         return keypair
 
     except ValueError:

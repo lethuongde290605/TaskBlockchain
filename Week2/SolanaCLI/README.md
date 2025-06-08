@@ -93,7 +93,7 @@ Vui lòng nhập secret key của bạn.
 [...]
 Secret Key: [52, 205, 81, 7, ...]
 
-✅ Đăng nhập thành công! Chào mừng, APU527zjWmRp8pFhBvPsDSAMnmDyRrJfhVjL1ZhuaNYZ
+Đăng nhập thành công! Chào mừng, APU527zjWmRp8pFhBvPsDSAMnmDyRrJfhVjL1ZhuaNYZ
 Kết nối tới Devnet: Thành công
 
 ==================================================
@@ -112,9 +112,9 @@ Nhập địa chỉ ví người nhận (public key): BxrBumPQRheicyDg2kudbfazBu
 Nhập địa chỉ mint token (hoặc 'SOL' cho native SOL): F2eaYQsCBzhDdBVKQY8dgjmKJhdMgyoon2miLJz1vxUh
 Nhập số lượng để gửi (ví dụ: 1.5): 0.01
 
-🔄 Đang xử lý giao dịch, vui lòng chờ...
-➡️  Giao dịch SPL Token...
-✅ Giao dịch đã được gửi thành công!
+Đang xử lý giao dịch, vui lòng chờ...
+Giao dịch SPL Token...
+Giao dịch đã được gửi thành công!
    Signature: 5EsvpP1TXaEqLPKmSu29cqAPAZd7XqdXwTvth9XYDwbp2wb4m68oyaUcQqCdn8ymamZxq9Aykio1JcQ269b8yPgc
    Xem trên Solana Explorer: https://explorer.solana.com/tx/...
 
@@ -129,7 +129,7 @@ Vui lòng chọn một chức năng: 2
 ==================================================
 --- Chức năng 2: Lịch sử giao dịch ---
 ==================================================
-🔄 Đang tìm các tài khoản của bạn để lựa chọn...
+Đang tìm các tài khoản của bạn để lựa chọn...
 
 Chọn tài khoản để xem lịch sử:
   1. Ví chính (SOL): APU527zjWmRp8pFhBvPsDSAMnmDyRrJfhVjL1ZhuaNYZ
@@ -139,7 +139,7 @@ Chọn tài khoản để xem lịch sử:
 Nhập lựa chọn (1-5): 1
 Nhập số lượng giao dịch gần nhất muốn xem (ví dụ: 5): 1
 
-🔄 Đang lấy 1 giao dịch gần nhất cho APU527zjWmRp8pFhBvPsDSAMnmDyRrJfhVjL1ZhuaNYZ...
+Đang lấy 1 giao dịch gần nhất cho APU527zjWmRp8pFhBvPsDSAMnmDyRrJfhVjL1ZhuaNYZ...
 
 (1/1) Lấy thông tin giao dịch: 5EsvpP1TXaEqLPKmSu29cqAPAZd7XqdXwTvth9XYDwbp2wb4m68oyaUcQqCdn8ymamZxq9Aykio1JcQ269b8yPgc
 --------------------------------------------------
